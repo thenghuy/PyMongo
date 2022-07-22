@@ -1,0 +1,58 @@
+22/07/22
+                                       Pymongo
+          -create database
+from pymongo import MongoClient
+client=MongoClient()
+db=client["  "]
+collection=db["  "]
+
+
+
+
+
+          -show db 
+from pymongo import MongoClient
+import pprint
+client=MongoClient("mongodb://localhost:27017")
+for i in client.list_database_names():
+    print(i)
+
+
+
+            -show collection:
+from pymongo import MongoClient
+client=MongoClient("mongodb://localhost:27017")
+db=client["task3"]
+for i in db.list_collection_names():
+    print(i)
+
+
+
+             -insert:
+add1=collection.insert_one(record1)
+add2=collection.insert_many(record)
+
+
+              -find
+for i in collection.find({"    ":               }):
+for i in collection.find({"          ":{"$in":["     ","    ","   ","   "]}}):
+ pprint.pprint(i)  #dont for get to import
+
+
+
+
+              -delete
+delete_one=collection.delete_one({'          ':              })
+delete_many = mycol.delete_many({})
+
+
+
+
+             -drop
+collection.drop()
+
+
+            -update
+x=collection.update_many({'batch': 10},{"$set":{ }})
+x=collection.update_one({'batch': 10},{"$set":{ }})
+print(x.modified_count)

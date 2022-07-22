@@ -1,0 +1,179 @@
+22/07/22
+                                       Pymongo
+          -create database
+from pymongo import MongoClient
+client=MongoClient()
+db=client["  "]
+collection=db["  "]
+
+
+
+
+
+          -show db 
+from pymongo import MongoClient
+import pprint
+client=MongoClient("mongodb://localhost:27017")
+for i in client.list_database_names():
+    print(i)
+
+
+
+            -show collection:
+from pymongo import MongoClient
+client=MongoClient("mongodb://localhost:27017")
+db=client["task3"]
+for i in db.list_collection_names():
+    print(i)
+
+
+
+             -insert:
+add1=collection.insert_one(record1)
+add2=collection.insert_many(record)
+
+
+              -find
+for i in collection.find({"    ":               }):
+for i in collection.find({"          ":{"$in":["     ","    ","   ","   "]}}):
+ pprint.pprint(i)  #dont for get to import
+
+
+
+
+              -delete
+delete_one=collection.delete_one({'          ':              })
+delete_many = mycol.delete_many({})
+
+
+
+
+             -drop
+collection.drop()
+
+
+            -update
+x=collection.update_many({'batch': 10},{"$set":{ }})
+x=collection.update_one({'batch': 10},{"$set":{ }})
+print(x.modified_count)
+
+
+
+
+
+
+
+
+Example:
+{   
+     "student_id":1804220001,
+     "student_f_name":"Keo",
+     "student_l_name":"Lythenghuy",
+     "student_age":17,
+     "school":"Kirrirom Institute of Technology",
+     "department":"Software engineering",
+     "batch":10,
+     "adress":{
+                       "house_No": "101E0",
+                       "street":"44C",
+                       "village":"Trea",
+                       "district":"Steung Meanchey",
+                       "city":"Phnom Penh"
+      },
+      "hobbies":["Soccer","Movies","Readbook","cycling"]
+ }
+{   
+     "student_id":1804220002,
+     "student_f_name":"Allison",
+     "student_l_name":"Ly",
+     "student_age":19,
+     "school":"Kirrirom Institute of Technology",
+     "department":"Software engineering",
+     "batch":10,
+     "adress":{
+                       "house_No": "543",
+                       "street":"111",
+                       "village":"Silver",
+                       "district":"chinatown",
+                       "city":"Bangkok"
+      },
+      "hobbies":["Badminton","Cooking","cycling"]
+ }
+{   
+     "student_id":1804220002,
+     "student_f_name":"Allison",
+     "student_l_name":"Ly",
+     "student_age":19,
+     "school":"Kirrirom Institute of Technology",
+     "department":"Software engineering",
+     "batch":10,
+     "adress":{
+                       "house_No": "543",
+                       "street":"111",
+                       "village":"Silver",
+                       "district":"chinatown",
+                       "city":"Bangkok"
+      },
+      "hobbies":["Badminton","Cooking","cycling"]
+ }
+{   
+     "student_id":1804220003,
+     "student_f_name":"Daniel",
+     "student_l_name":"Ou",
+     "student_age":18,
+     "school":"Kirrirom Institute of Technology",
+     "department":"Software engineering",
+     "batch":10,
+     "adress":{
+                       "house_No": "101E2",
+                       "street":"11",
+                       "village":"99",
+                       "district":"Bandan",
+                       "city":"Buriram"
+      },
+      "hobbies":["Basketball","Reading","Hanging out"]
+ }
+
+
+
+
+{
+     "sid":1507220001,
+     "s_name":"Lythenghuykeo",
+     "course":[
+                                 {"course_id":"DSE0001","course_name":"DSA","specialization":"programming"},
+                                 {"course_id":"DSE0002","course_name":"Pre-calculus1","specialization":"Math"},
+                                  {"course_id":"DSE0003","course_name":"Computer science 101","specialization":"programming"}
+     ]
+}
+
+
+
+
+db.inventory.insertMany([
+     {"item":"nuts","brand":"Blue Diamond","quantity":30,"carrier":{"name":"Persey","fee":3}},
+     {"item":"Full-fat-milks","brand":"Dutch Mill","quantity":100,"carrier":{"name":"Persey","fee":10}},
+     {"item":"Low-fat milks","brand":"Dutch Mill","quantity":80,"carrier":{"name":"Persey","fee":10}},
+     {"item":"Potato chips","brand":"Oishi","quantity":260,"carrier":{"name":"Persey","fee":5}},
+     {"item":"OrangeJuice","brand":"Frseshie","quantity":1000,"carrier":{"name":"Matt","fee":15}},
+     {"item":"InstantCofee","brand":"Nestle","quantity":1200,"carrier":{"name":"Brandy","fee":12}}
+])
+db.task2.insertMany( [
+   {
+     "_id": 1,
+     "alias": [ "The American Cincinnatus", "The American Fabius" ],
+     "mobile": "555-555-5555",
+     "nmae": { "first" : "george", "last" : "washington" }
+   },
+   {
+     "_id": 2,
+     "alias": [ "My dearest friend" ],
+     "mobile": "222-222-2222",
+     "nmae": { "first" : "abigail", "last" : "adams" }
+   },
+   {
+     "_id": 3,
+     "alias": [ "Amazing grace" ],
+     "mobile": "111-111-1111",
+     "nmae": { "first" : "grace", "last" : "hopper" }
+   }
